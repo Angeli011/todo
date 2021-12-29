@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import * as Component from './App.styles';
+import { ListItem } from './components/ListItems';
+import {Item} from './types/Item';
 
-function App() {
+const App = () => {
+  const [list, setList] = useState<Item[]>([
+    { id: 1, name: 'buy string', done: false},
+    { id: 2, name: 'buy cake', done: false}
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Component.Container>
+      <Component.Area>
+        <Component.Header>Lista de Tarefas</Component.Header>
+
+        {list.map((item, index)=>(
+          <ListItem key={index} item={item} />
+        ))}
+      </Component.Area>
+    </Component.Container>
   );
 }
 
