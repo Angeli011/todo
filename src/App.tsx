@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import * as Component from './App.styles';
-import { ListItem } from './components/ListItems';
+import { ListItem } from './components/ListItem';
 import {Item} from './types/Item';
 
 const App = () => {
   const [list, setList] = useState<Item[]>([
     { id: 1, name: 'buy string', done: false},
-    { id: 2, name: 'buy cake', done: false}
+    { id: 2, name: 'buy cake', done: true}
   ]);
 
   return (
